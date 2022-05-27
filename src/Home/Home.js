@@ -3,8 +3,10 @@ import Search from "../Search/Search.js";
 
 const Home = () => {
     return (
-        <div className="hero-main">
-            <Search />
+        <div>
+            <div className={styles.container}>
+                <Search />
+            </div>
         </div>
     );
 };

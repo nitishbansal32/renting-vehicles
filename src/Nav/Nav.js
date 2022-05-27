@@ -1,13 +1,13 @@
 import styles from "./Nav.module.css";
 import Language from "../Language/Langauge.js";
 import Profile from "../Profile/Profile.js";
-
+import Logo from "../Images/Logo.png";
 const Nav = () => {
     return (
-        <div className="nav-container">
-            <img src="" alt="" />
-            <div className="nav-links">
-                <ul className="link">
+        <div className={styles.container}>
+            <img className={styles.img} src={Logo} alt="" />
+            <div className={styles.linksContainer}>
+                <ul className={styles.link}>
                     <li>About</li>
                     <li>
                         <Language />

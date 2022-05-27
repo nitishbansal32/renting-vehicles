@@ -1,0 +1,29 @@
+.container {
+    /* border: 2px solid blue; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    gap: 2em;
+}
+
+.container h1 {
+    color: white;
+}
+.input {
+    width: 60vh;
+    padding: 1em;
+    border-radius: 4px;
+    outline: 0;
+    border: 1px solid rgb(159, 151, 151) !important;
+}
+
+.input:focus-within {
+    border: 0px !important;
+}
+
+.list {
+    color: white;
+}

@@ -1,6 +1,26 @@
-link {
+.img {
+    width: 5%;
+}
+
+.container {
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.container,
+.links-container {
+    display: flex;
+}
+
+.link {
     text-decoration: none;
     list-style-type: none;
     flex-direction: row;
     display: flex;
+    gap: 1em;
+}
+
+.link li {
+    color: white;
+    font-weight: 600;
 }
