@@ -6,10 +6,8 @@ import List from "./List.js";
 
 const Search = () => {
     const [inputText, setInputText] = useState("");
-    // console.log(inputText);
 
     let inputHandler = (e) => {
-        // console.log(e.target.value);
         var lowerCase = e.target.value.toLowerCase();
         setInputText(lowerCase);
     };

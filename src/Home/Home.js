@@ -4,9 +4,7 @@ import Search from "../Search/Search.js";
 const Home = () => {
     return (
         <div>
-            <div className={styles.container}>
-                <Search />
-            </div>
+            <div className={styles.container}>{/* <Search /> */}</div>
         </div>
     );
 };

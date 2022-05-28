@@ -1,38 +1,41 @@
 import { useState, useEffect } from "react";
 
-const useFetch = () => {
-    const [data, setdata] = useState(false);
+const useFetch = (url) => {
+    const [data, setdata] = useState(null);
     const [loading, setloading] = useState(true);
-    const [err, seterr] = useState(false);
+    const [errormsg, seterrormsg] = useState(null);
     useEffect(() => {
         const abortCont = new AbortController();
-        fetch(url, { signal: abortCont.signal })
-            .then((res) => {
-                if (!res.ok) {
-                    throw "Check for error";
-                }
-                return res.json;
-            })
-            .then((data) => {
-                setdata(data);
-                console.log(data);
-                setloading(false);
-                seterr(null);
-            })
-            .catch((err) => {
-                if (err === "AbortError") {
-                    console.log("Fetch Aborted");
-                } else {
+        setTimeout(() => {
+            fetch(url, { signal: abortCont.signal })
+                .then((res) => {
+                    if (!res.ok) {
+                        throw Error("error hai vai");
+                    }
+                    return res.json();
+                })
+                .then((data) => {
+                    setdata(data);
+                    console.log(data);
                     setloading(false);
-                    seterr(err.message);
-                }
-            });
+                    seterrormsg(null);
+                })
+                .catch((err) => {
+                    if (err.name === "AbortError") {
+                        console.log("Fetch Aborted");
+                    } else {
+                        setloading(false);
+                        seterrormsg(err.message);
+                    }
+                });
+        }, 100);
+
         return () => {
             abortCont.abort();
         };
     }, [url]);
-    return { data, loading, err };
+
+    return { data, loading, errormsg };
 };
 
 export default useFetch;
-s;

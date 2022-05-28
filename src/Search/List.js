@@ -1,26 +1,29 @@
 import data from "../data/search.json";
 import styles from "./Search.module.css";
+import { Link } from "react-router-dom";
 
 const List = (props) => {
-    console.log(props.input);
+    let Input = props.input;
     const filteredData = data.search.filter((el) => {
-        //if no input the return the original
         if (props.input === "") {
             return el;
-        }
-        //return the item which contains the user input
-        else {
-            return el.text.toLowerCase().includes(props.input);
-            console.log(el.text.toLowerCase().includes(props.input));
+        } else {
+            return el.name.toLowerCase().includes(props.input);
         }
     });
 
     return (
-        <ul className={styles.list}>
-            {filteredData.map((item) => (
-                <li key={item.id}>{item.text}</li>
-            ))}
-        </ul>
+        <div>
+            {Input && (
+                <ul className={styles.list}>
+                    {filteredData.map((item) => (
+                        <li key={item.id}>
+                            <Link to={`/search/${item.id}`}>{item.name}</Link>
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
     );
 };
 
